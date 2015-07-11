@@ -11,17 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150629074454) do
+ActiveRecord::Schema.define(version: 20150711112157) do
 
-  create_table "users", force: :cascade do |t|
-    t.string   "Position"
-    t.string   "name"
-    t.string   "gakuseki"
-    t.string   "password"
-    t.integer  "cabin"
-    t.integer  "license"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "resources", force: :cascade do |t|
+    t.integer  "new_arrival",    limit: 1, default: 0, null: false
+    t.integer  "return_status",  limit: 2, default: 0, null: false
+    t.integer  "borrow_status",  limit: 1, default: 0, null: false
+    t.integer  "use_permission", limit: 1, default: 0, null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
 end
