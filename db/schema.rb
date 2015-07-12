@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150711120631) do
+ActiveRecord::Schema.define(version: 20150712204813) do
+
+  create_table "mac_addresses", force: :cascade do |t|
+    t.string   "address"
+    t.string   "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "printer_id"
+    t.integer  "router_id"
+  end
+
+  create_table "printers", force: :cascade do |t|
+    t.integer  "location"
+    t.datetime "acquisition_date"
+    t.string   "name"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "resources", force: :cascade do |t|
     t.integer  "new_arrival",       limit: 1, default: 0, null: false
@@ -31,6 +48,14 @@ ActiveRecord::Schema.define(version: 20150711120631) do
     t.datetime "acquisition_date"
     t.integer  "limit"
     t.string   "type"
+  end
+
+  create_table "routers", force: :cascade do |t|
+    t.integer  "location"
+    t.datetime "acquisition_date"
+    t.string   "name"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "users", force: :cascade do |t|
