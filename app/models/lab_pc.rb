@@ -1,0 +1,2 @@
+class LabPc < Resource
+end

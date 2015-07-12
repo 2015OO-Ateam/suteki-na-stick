@@ -7,4 +7,7 @@ class Resource < ActiveRecord::Base
   enum borrow_status: {not_borrowing: 0, borrowing: 1}
   #利用許可種別　不許可　許可
   enum use_permission: {not_arrowed: 0, arrowed: 1}
+
+  #スキャン用不要
+  enum necessary_of_scan: {unnecessary: 0, necessary: 1}
 end
