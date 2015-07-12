@@ -19,12 +19,12 @@
 
   <div class="field">
     <%= f.label :room %><br />
-    <%= f.number_field :room, autofocus: true %>
+    <%= f.select :room,[401,403,410,411], autofocus: true %>
   </div>
 
   <div class="field">
     <%= f.label :status %><br />
-    <%= f.text_field :status, autofocus: true %>
+    <%= f.select :status,["manager","user"], autofocus: true %>
   </div>
 
   <div class="field">
