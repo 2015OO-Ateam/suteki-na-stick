@@ -1,3 +1,4 @@
+<!--
 <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>
 <u1>
@@ -5,3 +6,77 @@
     <li><%= user.student_number %></li>
     <% end %>
 </u1>
+-->
+<!-- 利用者トップページ -->
+
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <title>Prototype</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- gochiusa BGM!!!-->
+<!--
+  <embed src="gochiusa.wav" autostart="true" width="0" height="0" loop=true>
+</head>
+<body background="chino.png">
+-->
+
+  <div class="container">
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="borrow.html">Borrow</a></li>
+          <li><a href="wife_register.html">私物マシン登録(仮)</a></li>
+          <li><a href="user.html">User</a></li>
+          <li><a href="login.html">Logout</a></li>
+        </ul>
+        <h3 class="text-muted">Prototype</h3>
+      </div>
+      <div class="row marketing">
+        <div>
+          <h2>Borrowing</h2>
+
+          <ul>
+            <li>zenbook</li>
+              <button type="button" class="btn btn-default btn-sm" onclick="location.href='confirm_return.html'">
+              <span class="glyphicon glyphicon-sort" aria-hidden="true"></span> Return</button>
+              <button type="button" class="btn btn-default btn-sm" onclick="location.href='confirm.html'">
+              <span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> ScanReport</button>
+            <li>Microsoft Office</li>
+              <button type="button" class="btn btn-default btn-sm" onclick="location.href='confirm_return.html'">
+              <span class="glyphicon glyphicon-sort" aria-hidden="true"></span> Return</button>
+            <li>なんか借りてる物</li>
+              <button type="button" class="btn btn-default btn-sm" onclick="location.href='confirm_return.html'">
+              <span class="glyphicon glyphicon-sort" aria-hidden="true"></span> Return</button>
+          </ul>
+        </div>
+      </div>
+      <div class="footer">
+        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+
+        <!-- chino voice!!! -->
+        <script>
+          function chino(){
+            document.getElementById("sound-file").play();
+          }
+        </script>
+        <p class="container"><a onClick="chino()">チノちゃん</a></p>
+        <audio id="sound-file" preload="auto">
+           <source src="gochiusa_voice.mp3" type="audio/mp3">
+        </audio>
+        <!-- chino voice end -->
+
+      </div>
+    </div>
+</body>
+</html>

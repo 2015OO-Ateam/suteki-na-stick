@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20150711120631) do
     t.integer  "return_status",     limit: 2, default: 0, null: false
     t.integer  "borrow_status",     limit: 1, default: 0, null: false
     t.integer  "use_permission",    limit: 1, default: 0, null: false
+    t.integer  "necessary_of_scan", limit: 1, default: 0, null: false
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
     t.string   "name"
@@ -28,7 +29,6 @@ ActiveRecord::Schema.define(version: 20150711120631) do
     t.integer  "hdd"
     t.datetime "scan_date"
     t.datetime "acquisition_date"
-    t.integer  "necessary_of_scan"
     t.integer  "limit"
     t.string   "type"
   end
