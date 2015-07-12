@@ -33,20 +33,22 @@
               <% end %>
             </ul>
          </div></div>
+       </li>
+       <li>
          <h4 class="h">PC</h4>
          <div class="outer"><div class="inner">
            <ul>
              <% @lab_pcs.each do |pc| %>
              <li>
-              <h5 class="h"><a class="trigger" href="#"><%= pc.name %></a></h5>
-              <div class="outer"><div class="inner">
-                <p><%= pc.machine_name %>
+               <h5 class="h"><a class="trigger" href='#'><%= pc.name %></a></h5>
+               <div class="outer"><div class="inner">
+                 <p><%= pc.machine_name %></p>
+                 <p><%= pc.name %></p>
               </li>
-              <% end %>
-            </ul>
-          </div></div>
-        </li>
-       </div></div></div></div>
+            <% end %>
+          </ul>
+        </div></div>
+       </li>
       </ul>
     <script type="text/javascript">
       $(function() {
