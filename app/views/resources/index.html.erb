@@ -18,6 +18,7 @@
   	<meta name="robots" content="noindex, nofollow" />
   </head>
   <body>
+
     <div class="container">
       <ul id="ul808" class="accordion">
         <li>
@@ -49,6 +50,34 @@
           </ul>
         </div></div>
        </li>
+       <li>
+         <h4 class="h">Router</h4>
+         <div class="outer"><div class="inner">
+           <ul>
+             <% @routers.each do |router| %>
+             <li>
+               <h5 class="h"><a class="trigger" href='#'><%= router.name %></a></h5>
+               <div class="outer"><div class="inner">
+                 <p><%= router.mac_address.address %></p>
+              </li>
+            <% end %>
+          </ul>
+          </div></div>
+        </li>
+        <li>
+          <h4 class="h">Printer</h4>
+          <div class="outer"><div class="inner">
+            <ul>
+              <% @printers.each do |printer| %>
+              <li>
+                <h5 class="h"><a class="trigger" href='#'><%= printer.name %></a></h5>
+                <div class="outer"><div class="inner">
+                  <p><%= printer.mac_address.address %></p>
+               </li>
+             <% end %>
+           </ul>
+           </div></div>
+         </li>
       </ul>
     <script type="text/javascript">
       $(function() {
