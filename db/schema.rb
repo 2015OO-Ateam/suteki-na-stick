@@ -11,11 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150711104632) do
+ActiveRecord::Schema.define(version: 20150711120631) do
 
   create_table "resources", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "new_arrival",       limit: 1, default: 0, null: false
+    t.integer  "return_status",     limit: 2, default: 0, null: false
+    t.integer  "borrow_status",     limit: 1, default: 0, null: false
+    t.integer  "use_permission",    limit: 1, default: 0, null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.string   "name"
+    t.string   "machine_name"
+    t.string   "pc_type"
+    t.string   "cpu"
+    t.integer  "memory"
+    t.integer  "hdd"
+    t.datetime "scan_date"
+    t.datetime "acquisition_date"
+    t.integer  "necessary_of_scan"
+    t.integer  "limit"
+    t.string   "type"
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,7 +54,12 @@ ActiveRecord::Schema.define(version: 20150711104632) do
     t.integer  "status"
   end
 
+  add_index "users", ["first_name"], name: "index_users_on_first_name"
+  add_index "users", ["last_name"], name: "index_users_on_last_name"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["room"], name: "index_users_on_room"
+  add_index "users", ["status"], name: "index_users_on_status"
   add_index "users", ["student_number"], name: "index_users_on_student_number", unique: true
+  add_index "users", ["title"], name: "index_users_on_title"
 
 end

@@ -10,7 +10,6 @@ class AddColumnResource < ActiveRecord::Migration
     add_column :resources, :hdd, :integer
     add_column :resources, :scan_date, :datetime
     add_column :resources, :acquisition_date, :datetime #購入日時
-    add_column :resources, :necessary_of_scan, :integer #スキャン必要性
     #ソフトウェア
     #add_column :resources, :software_id, :integer
     add_column :resources, :limit, :integer #使用上限数
