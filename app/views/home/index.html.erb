@@ -35,9 +35,10 @@
       <div class="header">
         <ul class="nav nav-pills pull-right">
           <li class="active"><a href="index.html">Home</a></li>
+          <%= @users.student_number %>
           <li><a href="borrow.html">Borrow</a></li>
-          <li><a href="wife_register.html">私物マシン登録(仮)</a></li>
-          <li><a href="user.html">User</a></li>
+          <li><%= link_to 'Resources', resources_path %></li>
+          <li><%= link_to 'User', edit_user_registration_path %></li>
           <li><a href="login.html">Logout</a></li>
         </ul>
         <h3 class="text-muted">Prototype</h3>
