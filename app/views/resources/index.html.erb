@@ -40,8 +40,8 @@
   </head>
   <body>
     <%= form_tag(resources_path, :method => "get", id: "search-form") do %>
-    <input type="checkbox" name="search" value=0>借用可能
-    <input type="checkbox" name="search" value=1>借用中
+    <input type="checkbox" name="search" value=0>借用可能一覧
+    <input type="checkbox" name="search" value=1>借用中一覧
     <!--  <%= text_field_tag :search, params[:search], placeholder: "Search Soft" %>-->
       <%= submit_tag "Search", :borrow_status => nil %>
     <% end %>

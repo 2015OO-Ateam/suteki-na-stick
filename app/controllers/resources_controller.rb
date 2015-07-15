@@ -1,4 +1,5 @@
 class ResourcesController < ApplicationController
+  before_action :authenticate_user!
   def index
     @lab_pcs = LabPc.all
     @softwares = Software.all
