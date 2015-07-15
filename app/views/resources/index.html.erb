@@ -56,6 +56,7 @@
                 <h5 class="h"><a class="trigger" href="#"><%= soft.name %></a></h5>
                 <div class="outer"><div class="inner">
                     <p><%= soft.limit %></p>
+                    <%= link_to "Edit", change_software_path(soft.id) %>
               </li>
               <% end %>
             </ul>
@@ -69,7 +70,7 @@
              <li>
                <h5 class="h"><a class="trigger" href='#'><%= pc.name %></a></h5>
                <div class="outer"><div class="inner">
-                 <p><%= pc.machine_name %></p>
+                 <p><%= pc.machine_name %><%= link_to "Edit", change_lab_pc_path(pc.id) %></p>
                  <p><%= pc.name %></p>
               </li>
             <% end %>
