@@ -1,0 +1,10 @@
+<h1>Add new PC and Software</h1>
+<%= form_for @lab_pcs do |pc| %>
+<p>
+<%= pc.label :name %>
+<%= pc.text_field :name %>
+</p>
+<p>
+  <%= pc.submit %>
+</p>
+<% end %>

@@ -6,9 +6,7 @@
     <li><%= user.student_number %></li>
     <% end %>
 </u1>
--->
-<!-- 利用者トップページ -->
-
+ 利用者トップページ -->
 <!doctype html>
 <html class="no-js">
 <head>
@@ -30,21 +28,28 @@
 </head>
 <body background="chino.png">
 -->
-
-  <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="borrow.html">Borrow</a></li>
-          <li><a href="wife_register.html">私物マシン登録(仮)</a></li>
-          <li><a href="user.html">User</a></li>
-          <li><a href="login.html">Logout</a></li>
-        </ul>
-        <h3 class="text-muted">Prototype</h3>
-      </div>
-      <div class="row marketing">
-        <div>
-          <h2>Borrowing</h2>
+<div class="container">
+    <div class="header">
+      <ul class="nav nav-pills pull-right">
+        <li><%= link_to 'Home',home_index_path %></li>
+        <li><a href="borrow.html">Borrow</a></li>
+        <li><%= link_to 'Resources', resources_path %></li>
+        <li><%= link_to 'User', edit_user_registration_path %></li>
+        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+        <% if current_user.status=="manager" %>
+        <li><li class="active"><a href="index.html">CHINO</a></li>
+        <% end %>
+      </ul>
+      <% if current_user.status == "manager" %>
+          <h3 class="text-muted">Manager</h3>
+          <% else %>
+          <h3 class="text-muted">User</h3>
+          <% end %>
+    </div>
+    <div class="row marketing">
+      <div>
+</head>
+<!--          <h2>Borrowing</h2>
 
           <ul>
             <li>zenbook</li>
@@ -60,21 +65,9 @@
               <span class="glyphicon glyphicon-sort" aria-hidden="true"></span> Return</button>
           </ul>
         </div>
-      </div>
+      </div>-->
       <div class="footer">
         <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-
-        <!-- chino voice!!! -->
-        <script>
-          function chino(){
-            document.getElementById("sound-file").play();
-          }
-        </script>
-        <p class="container"><a onClick="chino()">チノちゃん</a></p>
-        <audio id="sound-file" preload="auto">
-           <source src="gochiusa_voice.mp3" type="audio/mp3">
-        </audio>
-        <!-- chino voice end -->
 
       </div>
     </div>
