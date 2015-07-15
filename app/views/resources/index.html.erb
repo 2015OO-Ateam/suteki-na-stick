@@ -39,14 +39,19 @@
             <div>
   </head>
   <body>
-
+    <%= form_tag(resources_path, :method => "get", id: "search-form") do %>
+    <input type="checkbox" name="search" value=0>借用可能
+    <input type="checkbox" name="search" value=1>借用中
+    <!--  <%= text_field_tag :search, params[:search], placeholder: "Search Soft" %>-->
+      <%= submit_tag "Search", :borrow_status => nil %>
+    <% end %>
     <div class="container">
       <ul id="ul808" class="accordion">
         <li>
           <h4 class="h">Software</h4>
           <div class="outer"><div class="inner">
             <ul>
-              <% @softwares.each do |soft| %>
+              <% @software.each do |soft| %>
               <li>
                 <h5 class="h"><a class="trigger" href="#"><%= soft.name %></a></h5>
                 <div class="outer"><div class="inner">
@@ -60,7 +65,7 @@
          <h4 class="h">PC</h4>
          <div class="outer"><div class="inner">
            <ul>
-             <% @lab_pcs.each do |pc| %>
+             <% @lab_pc.each do |pc| %>
              <li>
                <h5 class="h"><a class="trigger" href='#'><%= pc.name %></a></h5>
                <div class="outer"><div class="inner">

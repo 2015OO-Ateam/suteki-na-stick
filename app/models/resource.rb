@@ -10,4 +10,7 @@ class Resource < ActiveRecord::Base
 
   #スキャン用不要
   enum necessary_of_scan: {unnecessary: 0, necessary: 1}
+  def self.search(search)
+    Resource.where(['borrow_status LIKE ?', "%#{search}%"])
+  end
 end
