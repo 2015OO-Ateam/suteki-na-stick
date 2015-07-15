@@ -1,0 +1,2 @@
+module LabPcHelper
+end

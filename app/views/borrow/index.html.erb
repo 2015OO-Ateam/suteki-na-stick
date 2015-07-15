@@ -1,0 +1,67 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>ProtoType</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  	<script type="text/javascript" src="https://dl.dropbox.com/u/59384927/jquery/HTML/ACCORDION/NestedAccordion/jquery.nestedAccordion.js"></script>
+  	<meta name="robots" content="noindex, nofollow" />
+  </head>
+  <body>
+    <div class="container">
+      <ul id="ul808" class="accordion">
+        <li>
+          <h4 class="h">Software</h4>
+          <div class="outer"><div class="inner">
+            <ul>
+              <% @softwares.each do |soft| %>
+              <li>
+                <h5 class="h"><a class="trigger" href="#"><%= soft.name %></a> <%= link_to "[借用]", edit_software_path(soft.id) %></h5>
+                <div class="outer"><div class="inner">
+                    <p><%= soft.limit %></p>
+              </li>
+              <% end %>
+            </ul>
+         </div></div>
+       </li>
+       <li>
+         <h4 class="h">PC</h4>
+         <div class="outer"><div class="inner">
+           <ul>
+             <% @lab_pcs.each do |pc| %>
+             <li>
+               <h5 class="h"><a class="trigger" href='#'><%= pc.name %></a> <%= link_to "[借用]", edit_lab_pc_path(pc.id) %></h5>
+               <div class="outer"><div class="inner">
+                 <p><%= pc.machine_name %></p>
+                 <p><%= pc.name %></p>
+              </li>
+            <% end %>
+          </ul>
+        </div></div>
+       </li>
+      </ul>
+    <script type="text/javascript">
+      $(function() {
+  	     $("#ul808").accordion({
+           container: false,
+           el: ".h",
+           head: "h4 h5",
+           next: "div",
+           collapsible: true
+         });
+      });
+    </script>
+  	<hr>
+  </div>
+  	<script type="text/javascript" src="/lab/js/bootstrap-collapse.js"></script></body>
+  </html>

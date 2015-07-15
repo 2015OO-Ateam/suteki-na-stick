@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
-resources :resources
   devise_for :users
   get 'home/index'
-
   get 'home/show'
   root 'home#index'
+
+  get 'borrow/index'
+
+  resources :resources
+  resources :lab_pc do
+    collection do
+      post 'confirm'
+    end
+  end
+  resources :software
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

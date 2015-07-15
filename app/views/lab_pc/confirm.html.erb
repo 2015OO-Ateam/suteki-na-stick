@@ -1,0 +1,16 @@
+<%= form_for @lab_pc do |f| %>
+  <div class="field">
+    <%= @task.name%>
+    <%= f.hidden_field :name# <=データ保持 %>
+  </div>
+  <div class="field">
+    OS: <%= @task.os%>
+    <%= f.hidden_field :os# <=データ保持 %>
+  </div>
+  <div class="actions">
+    <%= f.submit '戻る', name: 'back'  # <=戻る為のname %>
+  </div>
+  <div class="actions">
+    <%= f.submit '借用' %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<h1>edit(借用)</h1>
+
+<%= form_for @resource do |f| %>
+
+<p>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %>
+</p>
+
+<p>
+  <%= f.submit %>
+</p>
+
+<% end %>
