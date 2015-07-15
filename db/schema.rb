@@ -31,13 +31,13 @@ ActiveRecord::Schema.define(version: 20150712204813) do
   end
 
   create_table "resources", force: :cascade do |t|
-    t.integer  "new_arrival",       limit: 1, default: 0, null: false
-    t.integer  "return_status",     limit: 2, default: 0, null: false
-    t.integer  "borrow_status",     limit: 1, default: 0, null: false
-    t.integer  "use_permission",    limit: 1, default: 0, null: false
-    t.integer  "necessary_of_scan", limit: 1, default: 0, null: false
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.integer  "new_arrival",       default: 0, null: false
+    t.integer  "return_status",     default: 0, null: false
+    t.integer  "borrow_status",     default: 0, null: false
+    t.integer  "use_permission",    default: 0, null: false
+    t.integer  "necessary_of_scan", default: 0, null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "name"
     t.string   "machine_name"
     t.string   "pc_type"

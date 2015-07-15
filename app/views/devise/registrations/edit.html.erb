@@ -21,12 +21,12 @@
     <%= f.label :room %><br />
     <%= f.select :room,[401,403,410,411], autofocus: true %>
   </div>
-
+<% if current_user.status=="manager" %>
   <div class="field">
     <%= f.label :status %><br />
     <%= f.select :status,["manager","user"], autofocus: true %>
   </div>
-
+<% end %>
   <div class="field">
     <%= f.label :student_number %><br />
     <%= f.text_field :student_number, autofocus: true %>
