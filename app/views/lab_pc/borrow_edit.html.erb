@@ -1,0 +1,37 @@
+<h2>PC名 : <%= @lab_pc.name %></h2>
+
+<%=  %>
+<%= @lab_pc.name%>
+
+<%= form_for @lab_pc, url: {action: 'borrow_update'} do |f| %>
+
+  <div class="field">
+    <%= f.label :os %><br>
+    <%= f.text_field :os %>
+    <% if @lab_pc.errors.any? %>
+    <%= @project.erroes.messages[:os][0] %>
+    <% end %>
+  </div>
+
+  <br />
+
+    <% @ip.each do |i| %>
+      <input type="radio" name="ip_number" value="<%= i.id%>"><%= i.number %>
+    <% end %>
+
+  <input type="hidden" name="user_room" value="<%= current_user.room %>">
+
+
+
+
+  <%= f.hidden_field :new_arrival,       :value => 'newly' %>
+  <%= f.hidden_field :borrow_status,     :value => 'borrowing' %>
+  <%= f.hidden_field :necessary_of_scan, :value => 'necessary' %>
+  <%= f.hidden_field :return_status,     :value => 'unapplied' %>
+
+
+ <div class="actoin">
+  <%= f.submit %>
+</div>
+
+<% end %>

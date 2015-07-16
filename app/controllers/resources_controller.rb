@@ -15,6 +15,11 @@ class ResourcesController < ApplicationController
         @lab_pc = LabPc.search(params[:search]).order("borrow_status DESC")
       else
         @lab_pc = LabPc.all.order('borrow_status DESC')
-      end
-    end
+    end 
+  end
+
+  def borrow
+    @lab_pcs = LabPc.where("borrow_status = '1'")
+    @softwares = Software.where("borrow_status = '0'")
+  end
 end

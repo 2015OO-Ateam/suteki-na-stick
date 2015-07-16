@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150712204813) do
+ActiveRecord::Schema.define(version: 20150715152534) do
+
+  create_table "ips", force: :cascade do |t|
+    t.string   "number"
+    t.integer  "usability",   default: 1, null: false
+    t.integer  "resource_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
 
   create_table "mac_addresses", force: :cascade do |t|
     t.string   "address"
@@ -32,9 +40,9 @@ ActiveRecord::Schema.define(version: 20150712204813) do
 
   create_table "resources", force: :cascade do |t|
     t.integer  "new_arrival",       default: 0, null: false
-    t.integer  "return_status",     default: 0, null: false
+    t.integer  "return_status",     default: 2, null: false
     t.integer  "borrow_status",     default: 0, null: false
-    t.integer  "use_permission",    default: 0, null: false
+    t.integer  "use_permission",    default: 1, null: false
     t.integer  "necessary_of_scan", default: 0, null: false
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
@@ -46,8 +54,16 @@ ActiveRecord::Schema.define(version: 20150712204813) do
     t.integer  "hdd"
     t.datetime "scan_date"
     t.datetime "acquisition_date"
+    t.string   "os"
+    t.integer  "room"
     t.integer  "limit"
     t.string   "type"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.integer  "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "routers", force: :cascade do |t|

@@ -32,7 +32,7 @@
     <div class="header">
       <ul class="nav nav-pills pull-right">
         <li><%= link_to 'Home',home_index_path %></li>
-        <li><a href="borrow.html">Borrow</a></li>
+        <li><%= link_to 'Borrow', borrow_resources_path %></li>
         <li><%= link_to 'Resources', resources_path %></li>
         <li><%= link_to 'User', edit_user_registration_path %></li>
         <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  	<script type="text/javascript" src="https://dl.dropbox.com/u/59384927/jquery/HTML/ACCORDION/NestedAccordion/jquery.nestedAccordion.js"></script>
+  	<meta name="robots" content="noindex, nofollow" />
+
+      <div class="container">
+          <div class="header">
+            <ul class="nav nav-pills pull-right">
+              <li><%= link_to 'Home',home_index_path %></li>
+              <li><a href="borrow.html">Borrow</a></li>
+              <li><%= link_to 'Resources', resources_path %></li>
+              <li><%= link_to 'User', edit_user_registration_path %></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+              <% if current_user.status=="manager" %>
+              <li><li class="active"><a href="index.html">CHINO</a></li>
+              <% end %>
+            </ul>
+            <% if current_user.status == "manager" %>
+                <h3 class="text-muted">Manager</h3>
+                <% else %>
+                <h3 class="text-muted">User</h3>
+                <% end %>
+          </div>
+          <div class="row marketing">
+            <div>
+  </head>
+  <body>
+
+    <div class="container">
+      <ul id="ul808" class="accordion">
+        <li>
+          <h4 class="h">Software</h4>
+          <div class="outer"><div class="inner">
+            <ul>
+              <% @softwares.each do |soft| %>
+              <li>
+                <h5 class="h">
+                  <a class="trigger" href="#"><%= soft.name %></a>
+                  <%= link_to '[借用]', borrow_edit_software_path(soft.id) %>
+                </h5>
+                <div class="outer"><div class="inner">
+                    <p><%= soft.limit %></p>
+              </li>
+              <% end %>
+            </ul>
+         </div></div>
+       </li>
+       <li>
+         <h4 class="h">PC</h4>
+         <div class="outer"><div class="inner">
+           <ul>
+             <% @lab_pcs.each do |pc| %>
+             <li>
+               <h5 class="h">
+                 <a class="trigger" href='#'><%= pc.name %></a>
+                 <%= link_to '[借用]', borrow_edit_lab_pc_path(pc.id) %>
+                </h5>
+               <div class="outer"><div class="inner">
+                 <p><%= pc.machine_name %></p>
+                 <p><%= pc.name %></p>
+              </li>
+            <% end %>
+          </ul>
+        </div></div>
+       </li>
+      </ul>
+    <script type="text/javascript">
+      $(function() {
+  	     $("#ul808").accordion({
+           container: false,
+           el: ".h",
+           head: "h4 h5",
+           next: "div",
+           collapsible: true
+         });
+      });
+    </script>
+  	<hr>
+  </div>
+  	<script type="text/javascript" src="/lab/js/bootstrap-collapse.js"></script></body>
+  </html>
