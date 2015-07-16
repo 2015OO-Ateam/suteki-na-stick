@@ -21,6 +21,18 @@ class LabPcController < ApplicationController
       render 'edit'
     end
   end
+  def new
+    @lab_pc = LabPc.new
+  end
+
+  def create
+    lab_pc = params[:lab_pc].permit(:name,:machine_name,:cpu,:memory,:hdd)
+    Labpc.create(lab_pc)
+    redirect_to new_resource_path
+  end
+
+
+
 
   private
     def lab_pc_params

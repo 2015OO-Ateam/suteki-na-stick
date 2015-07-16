@@ -36,13 +36,50 @@
                 <h3 class="text-muted">User</h3>
                 <% end %>
           </div>
-          <div class="row marketing">
-            <div>
+
   </head>
   <body>
-    <div class="container">
-      <li><%= link_to 'Software', new_software_path %></li>
-      <li><%= link_to 'PC', new_lab_pc_path %></li>
-      <li><%= link_to 'Router',new_router_path %></li>
-      <li><%= link_to 'Printer', new_printer_path %></li>
+    <div class="row marketing">
+    <h3>ソフトウェア</h3>
+    </br>
+    </br>
+    <%= form_for @software, url: {action: 'create'} do |f| %>
+
+      <div class="field">
+        <%= f.label :name, "ソフトウェア名：" %>
+        <%= f.text_field :name %>
+      </div></br>
+      <div class="field">
+        <%= f.label :limit, "使用可能上限数：" %>
+        <%= f.number_field :limit %>
+      </div></br>
+
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+
+      <%= f.submit ("登録") %>
+      <input type="button" value="戻る" onClick="history.back()">
     </div>
+
+
+<% end %>
+
+
+
+
+
+
+
+    <div class="footer">
+      <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+
+
+    </div>
+  </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</body>
+</html>

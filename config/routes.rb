@@ -6,7 +6,11 @@ Rails.application.routes.draw do
 
   get 'borrow/index'
 
+
+
   resources :resources
+  resources :printers
+  resources :routers
   resources :lab_pc do
     collection do
       post 'confirm'

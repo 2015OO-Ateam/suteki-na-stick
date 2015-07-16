@@ -40,9 +40,74 @@
             <div>
   </head>
   <body>
-    <div class="container">
-      <li><%= link_to 'Software', new_software_path %></li>
-      <li><%= link_to 'PC', new_lab_pc_path %></li>
-      <li><%= link_to 'Router',new_router_path %></li>
-      <li><%= link_to 'Printer', new_printer_path %></li>
+    <h3>PC</h3>
+    </br>
+    </br>
+
+<%= form_for @lab_pc, url: {action: 'create'} do |f| %>
+
+  <div class="field">
+    <%= f.label :machine_name, "マシン名：" %>
+    <%= f.text_field :machine_name %>
+  </div></br>
+  <div class="field">
+    <%= f.label :name, "機種名：" %>
+    <%= f.text_field :name %>
+  </div></br>
+  <div class="field">
+    <%= f.label :type, "種別：" %>
+    <%= f.select :type, [["デスクトップ", "desktop"], ["ラップトップ", "laptop"]] %>
+  </div></br>
+  <div class="field">
+    <%= f.label :cpu, "CPU：" %>
+    <%= f.text_field :cpu %>
+  </div></br>
+  <div class="field">
+    <%= f.label :memory, "メモリー：" %>
+    <%= f.number_field :memory %>
+  </div></br>
+  <div class="field">
+    <%= f.label :hdd, "HDD：" %>
+    <%= f.number_field :hdd %>
+  </div></br>
+  <div class="field">
+      <%= f.label :type, "Macアドレスとその種別：" %>
+      <label><%= f.radio_button :name, "wired" %>有線</label>
+      <label><%= f.radio_button :name, "wireless" %>無線</label>
+      </br>
+      <%= f.text_field :name %>
+  </div></br>
+<div class="field">
+  <%= f.label :use_permission, "利用可否" %>
+  <%= f.select :use_permission, [["可","allowed"],["否","not_allowed"]] %>
+</div></br>
+<div class="field">
+  <%= f.label :acquisition_date, "購入年月" %>
+  <%= f.date_field :acquisition_date %>
+</div></br>
+</br>
+</br>
+</br>
+</br>
+
+  <%= f.submit ("登録") %>
+  <input type="button" value="戻る" onClick="history.back()">
+
+
+</div>
+
+
+<% end %>
+
+
+
+    <div class="footer">
+      <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+
     </div>
+  </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -5,4 +5,8 @@ class ResourcesController < ApplicationController
     @printers = Printer.all
     @routers = Router.all
   end
+
+  def new
+  end
+  
 end
