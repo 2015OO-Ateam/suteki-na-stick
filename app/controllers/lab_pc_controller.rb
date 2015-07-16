@@ -14,9 +14,21 @@ before_action :authenticate_user!
     @ip.resource_id = params[:id]
     @ip.usability = 'unusable'
     @ip.save
-
     redirect_to borrow_resources_path
   end
+
+  def change
+    @lab_pc = LabPc.find(params[:id])
+  end
+  def change_update
+    @lab_pc = LabPc.find(params[:id])
+    if @lab_pc.update(labs_pc_params)
+      redirect_to resources_path
+    else
+      render 'change'
+    end
+  end
+
 
   private
     def borrow_params
@@ -25,4 +37,7 @@ before_action :authenticate_user!
       )
     end
 
+    def labs_pc_params
+      params[:lab_pc].permit(:machine_name, :cpu, :memory, :hdd, :return_status)
+    end
 end

@@ -1,4 +1,8 @@
 source 'https://rubygems.org'
+
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+gem 'coffee-script-source', '1.8.0'
+
 gem 'hirb'
 gem 'hirb-unicode'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

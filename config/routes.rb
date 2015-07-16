@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     member do
       get 'borrow_edit'
       patch 'borrow_update'
+      get 'change'
+      patch 'change_update'
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
