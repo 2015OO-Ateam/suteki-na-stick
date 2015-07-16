@@ -1,0 +1,10 @@
+<h2>ソフトウェア名 : <%= @software.name %></h2>
+
+<%= form_for @software, url: {action: 'borrow_update'} do |f| %>
+
+  <%= f.hidden_field :new_arrival,   :value => 'newly' %>
+  <%= f.hidden_field :borrow_status, :value => 'borrowing' %>
+
+  ソフトウェア借用時には、プロダクトキーを教員に聞いてください。</br>
+  <%= f.submit "借用" %>
+<% end %>

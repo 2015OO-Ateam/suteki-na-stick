@@ -4,25 +4,29 @@ Rails.application.routes.draw do
   get 'home/show'
   root 'home#index'
 
-  get 'borrow/index'
-
-  resources :resources
-  resources :software do
-    member do
-      get 'change'
-      patch 'change_update'
+  resources :resources do
+    collection do
+      get 'borrow'
     end
   end
+
   resources :lab_pc do
     collection do
       post 'confirm'
     end
     member do
+      get 'borrow_edit'
+      patch 'borrow_update'
+    end
+  end
+  resources :software do
+    member do
+      get 'borrow_edit'
+      patch 'borrow_update'
       get 'change'
       patch 'change_update'
     end
   end
-  resources :software
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

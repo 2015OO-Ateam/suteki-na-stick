@@ -1,26 +1,22 @@
 class LabPcController < ApplicationController
 before_action :authenticate_user!
-  def edit
+
+  def borrow_edit
     @lab_pc = LabPc.find(params[:id])
-    @test = params[:id]
-    #ip
-    #@ip = Ip.all
+    @ip = Ip.where("usability = '1'")
   end
 
-  def confirm
+  def borrow_update
     @lab_pc = LabPc.find(params[:id])
-    render :edit if @task.invalid?
-    #@pc_info = LabPc.
+    @lab_pc.room = params[:user_room]
+    @lab_pc.update(borrow_params)
+    @ip = Ip.find(params[:ip_number])
+    @ip.resource_id = params[:id]
+    @ip.usability = 'unusable'
+    @ip.save
+    redirect_to borrow_resources_path
   end
 
-  def update
-    @lab_pc = LabPc.find(params[:id])
-    if @lab_pc.update(lab_pc_params)
-      redirect_to home_index_path
-    else
-      render 'edit'
-    end
-  end
   def change
     @lab_pc = LabPc.find(params[:id])
   end
@@ -35,8 +31,10 @@ before_action :authenticate_user!
 
 
   private
-    def lab_pc_params
-      params[:lab_pc].permit(:return_status)
+    def borrow_params
+      params[:lab_pc].permit(
+        :os, :new_arrival, :borrow_status, :necessary_of_scan, :return_status
+      )
     end
 
     def labs_pc_params
