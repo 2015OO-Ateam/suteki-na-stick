@@ -35,12 +35,11 @@
   </div>
 </head>
 <body>
-<%= form_for @lab_pc do |f| %>
+<%= form_for @software do |f| %>
   <%= f.hidden_field :return_status, :value =>'applying' %>
   <%= f.hidden_field :new_arrivals, :value =>'newly' %>
 
-  <h4 align="center">name：<%= @lab_pc.name %></h4>
-  <h4 align="center">type：<%= @lab_pc.pc_type %></h4>
+  <h4 align="center">name：<%= @software.name %></h4>
   <p align="center"><%= f.submit "確認" %></p>
   <% end %>
 <!--          <h2>Borrowing</h2>

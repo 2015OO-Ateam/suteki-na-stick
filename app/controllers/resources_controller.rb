@@ -5,4 +5,5 @@ class ResourcesController < ApplicationController
     @printers = Printer.all
     @routers = Router.all
   end
+
 end

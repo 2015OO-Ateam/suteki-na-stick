@@ -16,7 +16,7 @@ class LabPcController < ApplicationController
   def update
     @lab_pc = LabPc.find(params[:id])
     if @lab_pc.update(lab_pc_params)
-      redirect_to borrow_index_path
+      redirect_to home_index_path
     else
       render 'edit'
     end
@@ -24,7 +24,6 @@ class LabPcController < ApplicationController
 
   private
     def lab_pc_params
-      params[:lab_pc].permit(:os)
+      params[:lab_pc].permit(:return_status)
     end
-
 end

@@ -1,3 +1,12 @@
+<!--
+<h1>Home#index</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+<u1>
+<% @users.each do |user| %>
+    <li><%= user.student_number %></li>
+    <% end %>
+</u1>
+ 利用者トップページ -->
 <!doctype html>
 <html class="no-js">
 <head>
@@ -27,23 +36,26 @@
         <li><%= link_to 'Resources', resources_path %></li>
         <li><%= link_to 'User', edit_user_registration_path %></li>
         <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+        <% if current_user.status=="manager" %>
+        <li><li class="active"><a href="index.html">CHINO</a></li>
+        <% end %>
       </ul>
-      <h3 class="text-muted">Return</h3>
+      <% if current_user.status == "manager" %>
+          <h3 class="text-muted">Return</h3>
+          <% else %>
+          <h3 class="text-muted">Return</h3>
+          <% end %>
     </div>
     <div class="row marketing">
-    </div>
-  </div>
+      <div>
 </head>
-<body>
-<%= form_for @lab_pc do |f| %>
-  <%= f.hidden_field :return_status, :value =>'applying' %>
-  <%= f.hidden_field :new_arrivals, :value =>'newly' %>
 
-  <h4 align="center">name：<%= @lab_pc.name %></h4>
-  <h4 align="center">type：<%= @lab_pc.pc_type %></h4>
-  <p align="center"><%= f.submit "確認" %></p>
-  <% end %>
+
+
+<body>
+<%= form_for @
 <!--          <h2>Borrowing</h2>
+
           <ul>
             <li>zenbook</li>
               <button type="button" class="btn btn-default btn-sm" onclick="location.href='confirm_return.html'">
@@ -59,8 +71,10 @@
           </ul>
         </div>
       </div>-->
-    <div class="footer">
-      <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+      <div class="footer">
+        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+
+      </div>
     </div>
 </body>
 </html>
