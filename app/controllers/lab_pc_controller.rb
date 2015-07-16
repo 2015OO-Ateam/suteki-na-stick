@@ -1,5 +1,5 @@
 class LabPcController < ApplicationController
-
+before_action :authenticate_user!
   def edit
     @lab_pc = LabPc.find(params[:id])
     @test = params[:id]
