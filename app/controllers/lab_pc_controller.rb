@@ -21,10 +21,24 @@ before_action :authenticate_user!
       render 'edit'
     end
   end
+  def change
+    @lab_pc = LabPc.find(params[:id])
+  end
+  def change_update
+    @lab_pc = LabPc.find(params[:id])
+    if @lab_pc.update(labs_pc_params)
+      redirect_to resources_path
+    else
+      render 'change'
+    end
+  end
+
 
   private
     def lab_pc_params
       params[:lab_pc].permit(:os)
     end
-
+    def labs_pc_params
+      params[:lab_pc].permit(:machine_name, :cpu, :memory, :hdd, :return_status)
+    end
 end
