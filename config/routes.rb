@@ -7,9 +7,19 @@ Rails.application.routes.draw do
   get 'borrow/index'
 
   resources :resources
+  resources :software do
+    member do
+      get 'change'
+      patch 'change_update'
+    end
+  end
   resources :lab_pc do
     collection do
       post 'confirm'
+    end
+    member do
+      get 'change'
+      patch 'change_update'
     end
   end
   resources :software
